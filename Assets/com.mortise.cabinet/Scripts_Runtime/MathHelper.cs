@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace MortiseFrame.Cabinet {
 
-    public static class MathHelper {
+    internal static class MathHelper {
 
-        class DefaultComparer<T> : Comparer<T> where T : IComparable<T> {
+        internal class DefaultComparer<T> : Comparer<T> where T : IComparable<T> {
             public override int Compare(T x, T y) {
                 return x.CompareTo(y);
             }
         }
 
-        public static void QuickSort<T>(T[] src, int offset, int count, Comparer<T> comparer = null) where T : IComparable<T> {
+        internal static void QuickSort<T>(T[] src, int offset, int count, Comparer<T> comparer = null) where T : IComparable<T> {
             if (count <= 1) return;
 
             comparer ??= new DefaultComparer<T>();

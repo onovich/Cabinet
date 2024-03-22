@@ -4,16 +4,16 @@ using MortiseFrame.Abacus;
 
 namespace MortiseFrame.Cabinet {
 
-    public class InventoryContext {
+    internal class InventoryContext {
 
         IPackable[] all;
         List<IPackable> tempList;
         int[] indexTempArray;
         Dictionary<int/*index*/, int/*tag*/> typeDict;
 
-        public int capacity;
+        internal int capacity;
 
-        public InventoryContext(int capacity) {
+        internal InventoryContext(int capacity) {
             this.capacity = capacity;
             all = new IPackable[capacity];
             tempList = new List<IPackable>(capacity);
@@ -22,7 +22,7 @@ namespace MortiseFrame.Cabinet {
         }
 
         // Capacity
-        public void IncreaseCapacity(int increaseAmount) {
+        internal void IncreaseCapacity(int increaseAmount) {
             if (increaseAmount <= 0) {
                 CLog.Log("Increase Amount Must Be Positive.");
             }
@@ -89,7 +89,7 @@ namespace MortiseFrame.Cabinet {
             exist.Count = src.SlotSize;
         }
 
-        public int AddWithoutIndex(IPackable src) {
+        internal int AddWithoutIndex(IPackable src) {
             if (src.SlotSize <= 0) {
                 return src.Count;
             }
@@ -113,14 +113,14 @@ namespace MortiseFrame.Cabinet {
         }
 
         // Exchange
-        public void ExchangeIndex(int from, int to) {
+        internal void ExchangeIndex(int from, int to) {
             var temp = all[from];
             all[from] = all[to];
             all[to] = temp;
         }
 
         // Count
-        public bool HasEnough(int typeID, int count) {
+        internal bool HasEnough(int typeID, int count) {
             int total = 0;
             for (int i = 0; i < capacity; i++) {
                 if (all[i] != null && all[i].TypeID == typeID) {
@@ -130,12 +130,12 @@ namespace MortiseFrame.Cabinet {
             return total >= count;
         }
 
-        public int Count(int index) {
+        internal int Count(int index) {
             return all[index].Count;
         }
 
         // Reduce
-        public void ReduceByTypeID(int typeID, int count, Action<int> onRemove) {
+        internal void ReduceByTypeID(int typeID, int count, Action<int> onRemove) {
             for (int i = 0; i < capacity; i++) {
                 if (all[i] == null) continue;
                 if (all[i].TypeID != typeID) continue;
@@ -153,7 +153,7 @@ namespace MortiseFrame.Cabinet {
             }
         }
 
-        public void ReduceByIndex(int index, int count, Action<int> onRemove) {
+        internal void ReduceByIndex(int index, int count, Action<int> onRemove) {
             var treasure = all[index];
             treasure.Count -= count;
             if (treasure.Count <= 0) {
@@ -163,7 +163,7 @@ namespace MortiseFrame.Cabinet {
         }
 
         // Remove
-        public void Remove(int index) {
+        internal void Remove(int index) {
             all[index] = null;
             if (!typeDict.ContainsKey(index)) {
                 CLog.Error($"Remove Error: Index = {index} Item Is Not In TypeDict");
@@ -172,13 +172,13 @@ namespace MortiseFrame.Cabinet {
         }
 
         // TryGet
-        public bool TryGet(int index, out IPackable treasure) {
+        internal bool TryGet(int index, out IPackable treasure) {
             treasure = all[index];
             return treasure != null;
         }
 
         // ForEach
-        public void ForEach(Action<int /*index*/, IPackable> action) {
+        internal void ForEach(Action<int /*index*/, IPackable> action) {
             for (int i = 0; i < capacity; i++) {
                 if (all[i] == null) continue;
                 action(i, all[i]);
@@ -186,7 +186,7 @@ namespace MortiseFrame.Cabinet {
         }
 
         // Filter
-        public int TryFilterByTag(int tag, List<IPackable> list) {
+        internal int TryFilterByTag(int tag, List<IPackable> list) {
             tempList.Clear();
             int count = 0;
             for (int i = 0; i < capacity; i++) {
@@ -202,7 +202,7 @@ namespace MortiseFrame.Cabinet {
         }
 
         // Sort
-        public List<IPackable> SortByType(int type) {
+        internal List<IPackable> SortByType(int type) {
             tempList.Clear();
             int count = 0;
             for (int i = 0; i < capacity; i++) {
@@ -219,7 +219,7 @@ namespace MortiseFrame.Cabinet {
         }
 
         // Clear
-        public void Clear() {
+        internal void Clear() {
             Array.Clear(all, 0, capacity);
             Array.Clear(indexTempArray, 0, capacity);
             tempList.Clear();
