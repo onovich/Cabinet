@@ -191,11 +191,10 @@ namespace MortiseFrame.Cabinet {
             int count = 0;
             for (int i = 0; i < capacity; i++) {
                 var item = all[i];
-                if (item.Tags != tag) {
-                    continue;
+                if ((item.Tags & tag) == tag) {
+                    tempList.Add(item);
+                    count++;
                 }
-                tempList.Add(item);
-                count++;
             }
             list = tempList;
             return count;
