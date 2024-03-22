@@ -55,8 +55,12 @@ namespace MortiseFrame.Cabinet {
         }
 
         // Filter
-        public int TryFilterByTag(int tag, List<IPackable> list) {
-            return ctx.TryFilterByTag(tag, list);
+        public int FilterByTag(int tag, List<IPackable> list) {
+            return ctx.FilterByTag(tag, list);
+        }
+
+        public int FilterByType(int type, List<IPackable> list) {
+            return ctx.FilterByTag(type, list);
         }
 
         // Sort

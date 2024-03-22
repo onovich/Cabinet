@@ -186,12 +186,26 @@ namespace MortiseFrame.Cabinet {
         }
 
         // Filter
-        internal int TryFilterByTag(int tag, List<IPackable> list) {
+        internal int FilterByTag(int tag, List<IPackable> list) {
             tempList.Clear();
             int count = 0;
             for (int i = 0; i < capacity; i++) {
                 var item = all[i];
                 if ((item.Tags & tag) == tag) {
+                    tempList.Add(item);
+                    count++;
+                }
+            }
+            list = tempList;
+            return count;
+        }
+
+        internal int FilterByType(int type, List<IPackable> list) {
+            tempList.Clear();
+            int count = 0;
+            for (int i = 0; i < capacity; i++) {
+                var item = all[i];
+                if (item.Type == type) {
                     tempList.Add(item);
                     count++;
                 }
