@@ -1,0 +1,16 @@
+{
+    "name": "MortiseFrame.Cabinet",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8bae2f23322789e429cb9222c6dc46dc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

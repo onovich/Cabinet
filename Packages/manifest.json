@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.mortise.abacus": "ssh://git@github.com/onovich/Abacus.git?path=/Assets/com.mortise.abacus#main",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.2d": "2.0.0",
     "com.unity.ide.rider": "3.0.26",

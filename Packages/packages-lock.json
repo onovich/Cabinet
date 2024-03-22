@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.mortise.abacus": {
+      "version": "ssh://git@github.com/onovich/Abacus.git?path=/Assets/com.mortise.abacus#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "273b51171cc5ed314b409060c849822cdbe2ff8d"
+    },
     "com.unity.2d.animation": {
       "version": "9.0.4",
       "depth": 1,
