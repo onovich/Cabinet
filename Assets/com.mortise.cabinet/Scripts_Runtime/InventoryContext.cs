@@ -214,7 +214,7 @@ namespace MortiseFrame.Cabinet {
 
             if (count <= 1) return tempList; // 少于两个元素,不需要排序
 
-            MathHelper.QuickSort(tempList);
+            QuickSortFunction.QuickSortList(tempList);
             return tempList;
         }
 
