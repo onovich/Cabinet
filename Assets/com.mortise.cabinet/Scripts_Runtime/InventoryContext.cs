@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using MortiseFrame.Abacus;
 
-namespace MortiseFrame.Cabinet {
+namespace TenonKit.Cabinet {
 
     internal class InventoryContext {
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace MortiseFrame.Cabinet {
+namespace TenonKit.Cabinet {
 
     public static class CLog {
         public static Action<string> Log = Console.WriteLine;

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MortiseFrame.Cabinet {
+namespace TenonKit.Cabinet {
 
     public class InventoryCore {
 

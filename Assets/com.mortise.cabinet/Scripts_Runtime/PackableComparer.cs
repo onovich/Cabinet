@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MortiseFrame.Cabinet {
+namespace TenonKit.Cabinet {
 
     class PackableComparer : Comparer<IPackable> {
         public override int Compare(IPackable x, IPackable y) {

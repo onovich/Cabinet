@@ -1,6 +1,6 @@
 using System;
 
-namespace MortiseFrame.Cabinet {
+namespace TenonKit.Cabinet {
 
     public interface IPackable : IComparable<IPackable> {
 

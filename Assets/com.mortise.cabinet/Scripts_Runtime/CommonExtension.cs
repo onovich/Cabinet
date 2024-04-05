@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MortiseFrame.Cabinet {
+namespace TenonKit.Cabinet {
 
     internal static class CommonExtension {
 
